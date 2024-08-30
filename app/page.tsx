@@ -1,4 +1,3 @@
-/*
 import Hero from "@/components/hero";
 import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
 import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
@@ -14,14 +13,4 @@ export default async function Index() {
       </main>
     </>
   );
-}
-*/
-
-import { createClient } from '@/utils/supabase/server'
-
-export default async function Page() {
-  const supabase = createClient()
-  const { data: notes } = await supabase.from('notes').select()
-
-  return <pre>{JSON.stringify(notes, null, 2)}</pre>
 }
